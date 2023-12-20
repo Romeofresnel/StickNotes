@@ -6,6 +6,29 @@ export default function FormulaireUploader({setModif,Data, setRefresh, theme}){
     const[titre, setTitre]=useState('')
     const[contenue, setContenue]=useState('')
     const[moon, setMoon]=useState(false)
+    useEffect(() => {
+        const saveData = () => {
+            const NewData={
+                _id: Data._id,
+                titre: titre,
+                contenue: contenue
+            };
+          axios.post(`http://localhost:5200/api/tache/${Data._id}`,NewData)
+            .then((res) => {
+              console.log(res.data);
+              setRefresh([])
+              setModif(false)
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+        };
+    
+        const timer = setTimeout(saveData, 3000); // Sauvegarder automatiquement toutes les 5 secondes
+    
+        return () => clearTimeout(timer); // Nettoyer le timer lors du démontage du composant
+    }, [titre, contenue]);
+
     const handleUpdateSubmit=(e)=>{
         e.preventDefault();
         const NewData={
