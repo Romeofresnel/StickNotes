@@ -19,29 +19,6 @@ export default function Formulaire({close, theme}){
             close(false);
         })
     }
-    const formData={
-        titre: titre,
-        contenue: contenue
-    }
-    const saveData =() => {
-        if(contenue!==''){
-            axios.post('http://localhost:5200/api/tache/post',formData).then((res)=>{
-                console.log(res.data)
-            })
-        }
-        console.log('Données sauvegardées:', formData);
-     }
-    useEffect(() => {
-        if (intervalId) {
-          clearInterval(intervalId);
-        }
-        const id = setTimeout(saveData, 5000);
-        setIntervalId(id);
-    
-        return () => {
-          clearInterval(id);
-        };
-     }, [formData]);
     return(
         <>
             <div className="Arriere"></div>
