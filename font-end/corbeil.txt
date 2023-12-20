@@ -1,0 +1,6 @@
+"scripts": {
+ "dev": "concurrently \"parcel app-react-gestionnaire de tache/index.html\" \"parcel back-end-multer/app.js\"",
+ "build": "vite build",
+ "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+ "preview": "vite preview"
+}
