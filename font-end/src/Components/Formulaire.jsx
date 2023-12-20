@@ -1,7 +1,5 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import Theme from "./Theme"
-import Portal1 from "./Portal1"
 
 
 
@@ -45,7 +43,7 @@ export default function Formulaire({close, theme}){
         };
      }, [formData]);
     return(
-        <>
+        <div>
             <div className="Arriere"></div>
             <div className="form" data-theme={theme}>
                 <form action="" onSubmit={handleSubmit} encType="multipart/form-data">
@@ -68,8 +66,7 @@ export default function Formulaire({close, theme}){
                         </div>
                     </div>
                 </form>
-                {aff && <Portal1><Theme close={setAff} theme={theme}/></Portal1>} 
             </div>
-        </>
+        <div/>
     )
 }
