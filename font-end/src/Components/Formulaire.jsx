@@ -52,7 +52,6 @@ export default function Formulaire({close, theme}){
                             <i className="fas fa-xmark" onClick={() => close(false)}></i>
                             <i className="fas fa-arrow-left-long" onClick={() => close(false)}></i>
                             <i className="fas fa-circle-check"></i>
-                            <i className="fas fa-moon" onClick={()=> setAff(true)}></i>
                         </div>
                         <div className="titre">
                             <input type="text" id="titre" name="titre" placeholder="Entrer le titre de la tache" value={titre} onChange={(e)=> setTitre(e.target.value)}/>
