@@ -214,6 +214,7 @@
                     font-size: 23px;
                     margin-top: 2px;
                     height: 38%;
+                    width: 35%;
                     border: none;
                     transition: 0.4s all;
                     color: var(--color);
@@ -291,6 +292,57 @@
         }
     }
 }
+@media screen and (width:320px){
+    .Container-light{
+        display: grid;
+        grid-template-rows: 20% 80%;
+        .sous{
+            .dessus{
+                .icons{
+                    .fa-sun{
+                        position: relative;
+                        margin-left: 120px;
+                        transition: 0.3s all;
+                        font-size: 23px;
+                        margin-top: 2px;
+                        height: 38%;
+                        border: none;
+                        transition: 0.4s all;
+                        color: var(--color);
+                    }
+                    .fa-sun:hover{
+                        transform: scale(1.1);
+                        border: none;
+                        background: var(--background-3);
+                        color: var(--color-3);
+                    }
+                }
+            }
+        }
+        .bloc-container{
+            .fa-pen{
+                display: initial;
+                position: fixed;
+                top: 380px;
+                font-size: 27px;
+                left: 240px;
+                background: var(--background-4);
+                padding: 20px 20px;
+                border-radius: 50%;
+                color: var(--color-3);
+                transform: translateY(10px);
+                transition: 0.3s all;
+            }
+            .fa-pen:hover{
+                transform: translateY(0px);
+            }
+            .fa-pen:active{
+                transform: scale(1.02);
+                color: #EDEDED;
+            }
+        }
+    }
+}
 @media screen and (width:375px){
     .Container-light{
         .bloc-container{
@@ -327,7 +379,7 @@
                         margin-left: 190px;
                         transition: 0.3s all;
                         font-size: 23px;
-                        margin-top: 2px;
+                        margin-top: 9px;
                         height: 38%;
                         border: none;
                         transition: 0.4s all;
@@ -376,7 +428,7 @@
                         margin-left: 210px;
                         transition: 0.3s all;
                         font-size: 23px;
-                        margin-top: 2px;
+                        margin-top: 10px;
                         height: 38%;
                         border: none;
                         transition: 0.4s all;
@@ -425,7 +477,7 @@
                         margin-left: 210px;
                         transition: 0.3s all;
                         font-size: 23px;
-                        margin-top: 2px;
+                        margin-top: 8px;
                         height: 38%;
                         border: none;
                         transition: 0.4s all;
@@ -474,7 +526,7 @@
                         margin-left: 220px;
                         transition: 0.3s all;
                         font-size: 23px;
-                        margin-top: 2px;
+                        margin-top: 10px;
                         height: 38%;
                         border: none;
                         transition: 0.4s all;
