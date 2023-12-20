@@ -3,24 +3,27 @@ import { useState } from "react"
 
 
 export default function FormulaireUploader({setModif,Data, setRefresh, theme}){
-    const[titre, setTitre]=useState('')
+    const[titre, setTitre]=useState(Data.titre)
     const[contenue, setContenue]=useState('')
     const[moon, setMoon]=useState(false)
 
     const handleUpdateSubmit=(e)=>{
-        e.preventDefault();
-        const NewData={
-            _id: Data._id,
-            titre: titre,
-            contenue: contenue
-        }
-        axios.put(`http://localhost:5200/api/tache/${Data._id}`,NewData).then((res)=> {
-            console.log(res.data)
-            setRefresh([])
+        if(contenue!==""){
+                e.preventDefault();
+            const NewData={
+                _id: Data._id,
+                titre: titre,
+                contenue: contenue
+            }
+            axios.put(`http://localhost:5200/api/tache/${Data._id}`,NewData).then((res)=> {
+                console.log(res.data)
+                setRefresh([])
+                setModif(false)
+            })
+            console.log(setModif);
+        }else{
             setModif(false)
-        })
-        console.log(setModif);
-        
+        }
     }
     return(
         <>

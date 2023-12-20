@@ -38,7 +38,12 @@ module.exports.Update= async(req, res)=>{
     const up= await TacheModel.findById(req.params.id)
     if(!ObjectId.isValid(req.params.id))
     return res.status(400).send('ID incorrect: '+ req.params.id)
-
+    // if(req.body.titre===""){
+    //     req.body.titre= 'Titre'
+    // }
+    if(!req.body.titre){
+        console.log('titre existe');
+    }
     const Update= await TacheModel.findByIdAndUpdate(up, req.body,{
         new: true
     })

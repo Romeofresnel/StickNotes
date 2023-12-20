@@ -51,7 +51,7 @@ const[theme, setTheme]= useLocalStorage('theme'? 'dark':'light')
                 { 
                     tache
                     .filter((Tache)=>{
-                        return Tache.contenue.includes(search)
+                        return Tache.contenue.includes(search) || Tache.titre.includes(search)
                     })
                     .map((Tache, index) => (
                     <Taches key={index._id} Tache={Tache} setRefresh={setRefresh} setDel={setDel} theme={theme}/>))
