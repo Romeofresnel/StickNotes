@@ -46,7 +46,7 @@ export default function Formulaire({close, theme}){
         <div>
             <div className="Arriere"></div>
             <div className="form" data-theme={theme}>
-                <form action="" onSubmit={handleSubmit} encType="multipart/form-data">
+                <form onSubmit={handleSubmit} encType="multipart/form-data">
                     <div className="entete">
                             <i className="fas fa-xmark" onClick={() => close(false)}></i>
                             <i className="fas fa-arrow-left-long" onClick={() => close(false)}></i>
@@ -67,6 +67,6 @@ export default function Formulaire({close, theme}){
                     </div>
                 </form>
             </div>
-        <div/>
+        </div>
     )
 }
