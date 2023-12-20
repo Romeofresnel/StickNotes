@@ -7,27 +7,6 @@ export default function Formulaire({close, theme}){
     const[titre, setTitre]=useState('')
     const[contenue, setContenue]=useState('')
     const[aff, setAff]=useState(false)
-    useEffect(() => {
-       if(contenue!==''){
-        const saveData = () => {
-            const formData = {
-              titre: titre,
-              contenue: contenue
-            };
-            axios.post("http://localhost:5200/api/tache/post", formData)
-              .then((res) => {
-                console.log(res.data);
-              })
-              .catch((error) => {
-                console.error(error);
-              });
-          };
-      
-          const timer = setInterval(saveData, 3000); // Sauvegarder automatiquement toutes les 5 secondes
-      
-          return () => clearInterval(timer); // Nettoyer le timer lors du démontage du composant
-       }
-    }, [titre, contenue]);
 
     const handleSubmit=(e)=>{
         e.preventDefault()
