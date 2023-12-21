@@ -27,9 +27,13 @@
     --border-3: #3d3d3dd9;
 
     ::-webkit-scrollbar-thumb{
-        background-color: #2d2d2de1;
+        background-color: #A1EDA0;
         border-radius: 10px;
         max-width: 5px;
+    }
+    ::-webkit-scrollbar-track{
+        background-color: #3d3d3dd9;
+        padding: 2px;
     }
 }
 

@@ -4,9 +4,8 @@ import { useState } from "react"
 
 export default function FormulaireUploader({setModif,Data, setRefresh, theme}){
     const[titre, setTitre]=useState(Data.titre)
-    const[contenue, setContenue]=useState('')
-    const[moon, setMoon]=useState(false)
-
+    // on met data.titre comme valeur auuseState de titre pour que si lord de a modification on n'y apporte pas de modif elle ne deviens pas vide c'est donc en gros initialement ca prend la valeur de data.titre lord de l'envoi cest pour ca qu'on met useState(Data.titre) plutot que useState('')
+    const[contenue, setContenue]=useState(Data.contenue)
     const handleUpdateSubmit=(e)=>{
         if(contenue!==""){
                 e.preventDefault();
@@ -53,9 +52,6 @@ export default function FormulaireUploader({setModif,Data, setRefresh, theme}){
                 </form>
 
             </div>
-            {moon && <Portal1>
-                <Image close={setMoon} data={Data} theme={theme}/>
-            </Portal1>}
         </>
     )
 }
