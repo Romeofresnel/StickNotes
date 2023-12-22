@@ -6,6 +6,17 @@ export default function FormulaireUploader({setModif,Data, setRefresh, theme}){
     const[titre, setTitre]=useState(Data.titre)
     // on met data.titre comme valeur auuseState de titre pour que si lord de a modification on n'y apporte pas de modif elle ne deviens pas vide c'est donc en gros initialement ca prend la valeur de data.titre lord de l'envoi cest pour ca qu'on met useState(Data.titre) plutot que useState('')
     const[contenue, setContenue]=useState(Data.contenue)
+
+    const date= Data.updatedAt
+    const time= Date.parse(date)
+    const updata= new Date(time).toLocaleDateString("fr-FR",{
+        // year: 'numeric',
+        month:  'numeric',
+        day: 'numeric',
+        hour:"numeric",
+        minute:'numeric'
+    })
+
     const handleUpdateSubmit=(e)=>{
         if(contenue!==""){
                 e.preventDefault();
@@ -33,11 +44,12 @@ export default function FormulaireUploader({setModif,Data, setRefresh, theme}){
                         <div className="elements">
                             <i className="fas fa-xmark" onClick={()=>setModif(false)}></i>
                             <i className="fas fa-arrow-left-long" onClick={()=>setModif(false)}></i>
-                            <i className="fas fa-circle-check"></i>
+                            <i className="fas fa-circle-check" onClick={handleUpdateSubmit}></i>
                         </div>
                         <div className="titre">
-                            <input type="text" id="titre" name="titre" placeholder="Entrer le titre de la tache"
+                            <input type="text" id="titre" name="titre" className="titres" placeholder="Entrer le titre de la tache"
                             defaultValue={Data.titre}  onChange={(e)=> setTitre(e.target.value)} />
+                            <div className="modifier">Modifier le : {updata}</div>
                         </div>
                     </div>
                     <div className="body-container">

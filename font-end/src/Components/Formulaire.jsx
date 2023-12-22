@@ -8,6 +8,7 @@ export default function Formulaire({close, theme}){
     const[contenue, setContenue]=useState('')
     const[aff, setAff]=useState(false)
 
+    
     const handleSubmit=(e)=>{
         e.preventDefault()
         const formData={
@@ -17,8 +18,18 @@ export default function Formulaire({close, theme}){
         axios.post('http://localhost:5200/api/tache/post',formData).then((res)=>{
             console.log(res.data)
             close(false);
+            
         })
     }
+    const date= new Date()
+    const time= Date.parse(date)
+    const updata= new Date(time).toLocaleDateString("fr-FR",{
+        // year: 'numeric',
+        month:  'numeric',
+        day: 'numeric',
+        hour:"numeric",
+        minute:'numeric'
+    })
     return(
         <>
             <div className="Arriere"></div>
@@ -31,7 +42,8 @@ export default function Formulaire({close, theme}){
                             <i className="fas fa-circle-check" onClick={handleSubmit}></i>
                         </div>
                         <div className="titre">
-                            <input type="text" id="titre" name="titre" placeholder="Entrer le titre de la tache" value={titre} onChange={(e)=> setTitre(e.target.value)}/>
+                            <input type="text" id="titre" name="titre" placeholder="En-Tete" value={titre} onChange={(e)=> setTitre(e.target.value)}/>
+                            <div className="modifier">Creer le : {updata}</div>
                         </div>
                     </div>
                     <div className="body-container">
